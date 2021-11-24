@@ -19,7 +19,7 @@ public class BrowserStackAndroid {
     public static String userName = "sandibkumarnayak_BYnqRP";
     public static String accessKey = "TxyvZdv2SStBfYn9rYeQ";
     public static String taxiAppPath="bs://a36f8cdd67bcf776e7bcd21dd87fe1ba1e5ea2da";
-    public static String sampleApp="bs://444bd0308813ae0dc236f8cd461c02d3afa7901d";
+    public static String iosSampleApp="bs://444bd0308813ae0dc236f8cd461c02d3afa7901d";
     public static String BrowserStackAppURL="https://"+userName+":"+accessKey+"@hub-cloud.browserstack.com/wd/hub";
     public static AndroidDriver<AndroidElement> androidDriver=null;
     public static IOSDriver<IOSElement> iosDriver=null;
@@ -57,7 +57,7 @@ public class BrowserStackAndroid {
                 caps.setCapability("project", "First BS IOS Project");
                 caps.setCapability("build", "First Build IOS Sample App");
                 caps.setCapability("name", "Sample App Test-Code");
-                caps.setCapability("app",sampleApp);
+                caps.setCapability("app",iosSampleApp);
                 iosDriver = new IOSDriver<IOSElement>(url, caps);
                 driver=iosDriver;
                 System.out.println("IOS App driver initiated");
@@ -69,8 +69,8 @@ public class BrowserStackAndroid {
 
 
     public static void main(String args[]) throws MalformedURLException, InterruptedException {
-//        String appName="BSATAXIAPP";
-        String appName="BSISAMPLEIAPP";
+        String appName="BSATAXIAPP";
+//        String appName="BSISAMPLEIAPP";
 
         lunchBSApp(BrowserStackAppURL,appName);
 
@@ -112,8 +112,9 @@ public class BrowserStackAndroid {
 
                 MobileElement inputField = driver.findElement(By.xpath("//XCUIElementTypeTextField[@name='Text Input']"));
                 wait.until(ExpectedConditions.visibilityOf(inputField));
+
                 inputField.sendKeys("IOS Text GitTest 'master'");
-            break;
+
 
 }
 //Comment 1 for git test
